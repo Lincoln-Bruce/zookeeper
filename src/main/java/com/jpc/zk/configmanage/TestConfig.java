@@ -43,6 +43,7 @@ public class TestConfig {
         while (true){
             if(StringUtil.isNullOrEmpty(configData.getText())){
                 System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)+"：config1下没有数据");
+                watchCallback.await();
             }else{
                 System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)+"：读取到配置文件：" + configData.getText());
             }

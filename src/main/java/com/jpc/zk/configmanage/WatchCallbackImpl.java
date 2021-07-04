@@ -50,6 +50,9 @@ public class WatchCallbackImpl implements AsyncCallback.DataCallback, Watcher, A
                 zooKeeper.getData("/config1", this, this, "D");
                 break;
             case NodeDeleted:
+                System.out.println("节点数据被删除......");
+                configData.setText("");
+                countDownLatch = new CountDownLatch(1);
                 break;
             case NodeDataChanged:
                 zooKeeper.getData("/config1", this, this, "D");
@@ -72,7 +75,7 @@ public class WatchCallbackImpl implements AsyncCallback.DataCallback, Watcher, A
             case NoSyncConnected:
                 break;
             case SyncConnected:
-                System.out.println("节点数据被修改......");
+                System.out.println("节点数据正在同步......");
                 break;
             case AuthFailed:
                 break;
