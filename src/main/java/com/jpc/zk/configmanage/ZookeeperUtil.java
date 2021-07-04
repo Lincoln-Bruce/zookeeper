@@ -13,7 +13,7 @@ public class ZookeeperUtil {
 
     public static ZooKeeper getZookeeper() throws IOException {
         ZooKeeper zooKeeper = new ZooKeeper("192.168.31.136:2181,192.168.31.141:2181,192.168.31.138:2181,192.168.31.139:2181/configs",
-                1000, event -> System.out.println("Zk创建事件：" + event.toString()));
+                40000, event -> System.out.println("Zk创建事件：" + event.toString()));
         return zooKeeper;
     }
 }
